@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Landed Cost Calculator: Import from China | MyRemoters</title>
+<style>*{box-sizing:border-box}:root{color-scheme:dark}body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;margin:0;background:#05070A;color:#919293;line-height:1.5}.wrap{max-width:720px;margin:0 auto;padding:24px 16px 48px}.card{background:#131517;border:1px solid #2F3133;border-radius:14px;padding:20px;margin:16px 0}h1{font-size:26px;margin:8px 0 4px;color:#fff}h2{font-size:18px;margin:0 0 12px;color:#fff}.sub{color:#919293;font-size:14px}.lang{display:flex;gap:8px;margin:12px 0}.lang button{flex:1;padding:10px;border:1px solid #2F3133;background:#131517;color:#B8B9BA;border-radius:8px;cursor:pointer;font-weight:600}.lang button.on{background:#2563EB;color:#fff;border-color:#2563EB}label{display:block;font-size:13px;font-weight:600;margin:14px 0 4px;color:#B8B9BA}input,select{width:100%;padding:11px 12px;border:1px solid #2F3133;border-radius:8px;font-size:15px;background:#05070A;color:#fff}.grid{display:grid;grid-template-columns:1fr 1fr;gap:0 14px}.btn{width:100%;padding:14px;background:#2563EB;color:#fff;border:0;border-radius:10px;font-size:16px;font-weight:700;cursor:pointer;margin-top:18px}.result{display:none}.row{display:flex;justify-content:space-between;padding:9px 0;border-bottom:1px solid #2F3133}.row b{font-variant-numeric:tabular-nums;color:#fff}.total{font-size:18px;font-weight:800}.profit{font-size:16px}.row b.good{color:#4ade80}.row b.bad{color:#f87171}.note{font-size:12px;color:#fcd34d;background:#201a05;border:1px solid #a16207;border-radius:8px;padding:12px;margin-top:14px}.example{font-size:13px;background:#0B1A38;border:1px solid #1d4ed8;border-radius:8px;padding:12px;cursor:pointer;color:#bfdbfe}.small{font-size:12px;color:#7A7B7C}.brand{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#7A7B7C;font-weight:700}@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes pop{0%{transform:scale(.96);opacity:0}100%{transform:scale(1);opacity:1}}
+.wrap{animation:fadeIn .4s ease both}
+.card{animation:fadeUp .5s ease both}
+.btn{transition:transform .15s ease,filter .15s ease}
+.btn:hover{transform:translateY(-1px);filter:brightness(1.12)}
+.btn:active{transform:translateY(0) scale(.98)}
+.adslot{border:1px dashed #2F3133;border-radius:12px;background:#0B0E12;min-height:90px;display:flex;align-items:center;justify-content:center;margin:14px 0}
+.adslot .ad-label{font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:#7A7B7C}
+.ad-rect{min-height:250px;max-width:336px;margin-left:auto;margin-right:auto}
+@media(max-width:480px){.adslot{min-height:100px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+.result{animation:pop .35s ease both}
+input,select{transition:border-color .15s ease,box-shadow .15s ease}
+input:focus,select:focus{border-color:#2563EB;box-shadow:0 0 0 3px rgba(37,99,235,.25);outline:none}
+.example{transition:transform .15s ease,border-color .15s ease}
+.example:hover{transform:translateY(-2px);border-color:#2563EB}</style>
+</head>
+<body>
+<div class="wrap">
+<div class="brand">MyRemoters • Tools</div>
+<h1 data-i18n="title">Landed Cost Calculator</h1>
+<p class="sub" data-i18n="subtitle">Buying from China? Work out the full cost before you pay the factory.</p>
+
+<div class="lang">
+<button type="button" class="on" onclick="setLang('en',this)">English</button>
+<button type="button" onclick="setLang('id',this)">Bahasa Indonesia</button>
+<button type="button" onclick="setLang('zh',this)">中文</button>
+</div>
+
+<!-- Google AdSense: paste your ad code inside this box -->
+<div class="adslot"><span class="ad-label">Advertisement</span></div>
+<div class="card">
+<h2 data-i18n="h1">1. Product &amp; shipping</h2>
+<div class="grid">
+<div><label data-i18n="l_price">Factory price / unit (USD)</label><input id="price" type="number" min="0" step="0.01" value="5.00"></div>
+<div><label data-i18n="l_qty">Quantity (pcs)</label><input id="qty" type="number" min="1" step="1" value="1000"></div>
+<div><label data-i18n="l_ship">Shipping total (USD)</label><input id="ship" type="number" min="0" step="0.01" value="350"></div>
+<div><label data-i18n="l_ins">Insurance (USD, optional)</label><input id="ins" type="number" min="0" step="0.01" value="0"></div>
+</div>
+
+<h2 style="margin-top:22px" data-i18n="h2">2. Destination &amp; taxes</h2>
+<label data-i18n="l_dest">Destination country</label>
+<select id="dest" onchange="applyPreset()">
+<option value="ID">Indonesia</option>
+<option value="US">United States</option>
+<option value="EU">European Union</option>
+<option value="UK">United Kingdom</option>
+<option value="SG">Singapore</option>
+<option value="MY">Malaysia</option>
+<option value="OTHER">Other / custom</option>
+</select>
+<div class="grid">
+<div><label data-i18n="l_duty">Import duty (%)</label><input id="duty" type="number" min="0" step="0.1" value="10"></div>
+<div><label data-i18n="l_vat">VAT / sales tax (%)</label><input id="vat" type="number" min="0" step="0.1" value="11"></div>
+<div><label data-i18n="l_agent">Sourcing agent fee (%)</label><input id="agent" type="number" min="0" step="0.1" value="5"></div>
+<div><label data-i18n="l_other">Other fees (USD)</label><input id="other" type="number" min="0" step="0.01" value="0"></div>
+</div>
+
+<h2 style="margin-top:22px" data-i18n="h3">3. Selling (optional)</h2>
+<label data-i18n="l_sell">Selling price per unit (USD). Leave 0 if you're not sure yet</label>
+<input id="sell" type="number" min="0" step="0.01" value="12">
+<button class="btn" onclick="calc()" data-i18n="btn">Calculate landed cost →</button>
+
+<div class="example" onclick="loadExample()" style="margin-top:14px"><span data-i18n="ex">Try example:</span> <b>$5 × 1000 pcs, shipping $350, Indonesia, duty 10%, VAT 11%, agent 5%</b></div>
+</div>
+
+<div class="card result" id="result">
+<h2 data-i18n="r_title">Your result</h2>
+<div class="row"><span data-i18n="r_goods">Goods value</span><b id="o_goods">$0</b></div>
+<div class="row"><span data-i18n="r_duty">Import duty</span><b id="o_duty">$0</b></div>
+<div class="row"><span data-i18n="r_vat">VAT / tax</span><b id="o_vat">$0</b></div>
+<div class="row"><span data-i18n="r_ship">Shipping + insurance</span><b id="o_ship">$0</b></div>
+<div class="row"><span data-i18n="r_agent">Agent fee</span><b id="o_agent">$0</b></div>
+<div class="row"><span data-i18n="r_other">Other fees</span><b id="o_other">$0</b></div>
+<div class="row total"><span data-i18n="r_total">Total landed cost</span><b id="o_total">$0</b></div>
+<div class="row"><span data-i18n="r_unit">Landed cost / unit</span><b id="o_unit">$0</b></div>
+<div id="profitBox" style="display:none">
+<div class="row profit"><span data-i18n="r_rev">Revenue</span><b id="o_rev">$0</b></div>
+<div class="row profit"><span data-i18n="r_profit">Gross profit</span><b id="o_profit" class="good">$0</b></div>
+<div class="row profit"><span data-i18n="r_margin">Margin</span><b id="o_margin">$0</b></div>
+</div>
+<p class="small" data-i18n="r_formula">How it works, simplified: VAT is charged on goods + duty + shipping. Duty is charged on the goods value. Check your HS code for the exact duty rate.</p>
+</div>
+
+<!-- Google AdSense: paste your ad code inside this box -->
+<div class="adslot ad-rect"><span class="ad-label">Advertisement</span></div>
+<div class="note" data-i18n="disclaimer">This is an estimate only. The real duty and VAT depend on the HS code, the product category, and the customs rules where it's going. Check with your forwarder or customs broker before you pay. The rates here are editable examples, not official rates.</div>
+<p class="small" style="text-align:center;margin-top:18px">MyRemoters, Build Teams. Scale Operations. • myremoters.com/tools/landed-cost</p>
+</div>
+
+<script>
+const T={
+en:{title:"Landed Cost Calculator",subtitle:"Buying from China? Work out the full cost before you pay the factory.",h1:"1. Product and shipping",h2:"2. Destination and taxes",h3:"3. Selling (optional)",l_price:"Factory price per unit (USD)",l_qty:"Quantity (pcs)",l_ship:"Shipping total (USD)",l_ins:"Insurance (USD, optional)",l_dest:"Destination country",l_duty:"Import duty (%)",l_vat:"VAT / sales tax (%)",l_agent:"Sourcing agent fee (%)",l_other:"Other fees (USD)",l_sell:"Selling price per unit (USD). Leave 0 if you're not sure yet",btn:"Calculate landed cost",ex:"Try an example:",r_title:"Your result",r_goods:"Goods value",r_duty:"Import duty",r_vat:"VAT / tax",r_ship:"Shipping + insurance",r_agent:"Agent fee",r_other:"Other fees",r_total:"Total landed cost",r_unit:"Landed cost per unit",r_rev:"Revenue",r_profit:"Gross profit",r_margin:"Margin",r_formula:"How it works, simplified: VAT is charged on goods + duty + shipping. Duty is charged on the goods value. Check your HS code for the exact duty rate.",disclaimer:"This is an estimate only. The real duty and VAT depend on the HS code, the product category, and the customs rules where it's going. Check with your forwarder or customs broker before you pay. The rates here are editable examples, not official rates."},
+id:{title:"Kalkulator Landed Cost",subtitle:"Mau impor dari China? Hitung dulu total biayanya sebelum bayar pabrik.",h1:"1. Produk dan pengiriman",h2:"2. Negara tujuan dan pajak",h3:"3. Harga jual (opsional)",l_price:"Harga pabrik per pcs (USD)",l_qty:"Jumlah (pcs)",l_ship:"Total ongkir (USD)",l_ins:"Asuransi (USD, opsional)",l_dest:"Negara tujuan",l_duty:"Bea masuk (%)",l_vat:"PPN / pajak (%)",l_agent:"Fee sourcing agent (%)",l_other:"Biaya lain (USD)",l_sell:"Harga jual per pcs (USD). Kosongkan kalau belum tahu",btn:"Hitung landed cost",ex:"Coba contoh:",r_title:"Hasil kamu",r_goods:"Nilai barang",r_duty:"Bea masuk",r_vat:"PPN / pajak",r_ship:"Ongkir + asuransi",r_agent:"Fee agent",r_other:"Biaya lain",r_total:"Total landed cost",r_unit:"Landed cost per pcs",r_rev:"Omzet",r_profit:"Laba kotor",r_margin:"Margin",r_formula:"Cara hitungnya, versi sederhana: PPN dihitung dari nilai barang + bea masuk + ongkir. Bea masuk dihitung dari nilai barang. Cek kode HS buat tarif bea yang tepat.",disclaimer:"Ini cuma estimasi. Bea masuk dan PPN aslinya tergantung kode HS, kategori produk, dan aturan bea cukai di negara tujuan. Konfirmasi dulu ke forwarder atau broker bea cukai sebelum bayar. Tarif di sini contoh yang bisa diubah, bukan tarif resmi."},
+zh:{title:"到岸成本计算器",subtitle:"要从中国进口？先算清总成本，再付钱给工厂。",h1:"1. 产品与运费",h2:"2. 目的国与税费",h3:"3. 售价（可选）",l_price:"工厂单价（美元）",l_qty:"数量（件）",l_ship:"运费总计（美元）",l_ins:"保险（美元，可选）",l_dest:"目的国",l_duty:"进口关税（%）",l_vat:"增值税 / 销售税（%）",l_agent:"采购代理费（%）",l_other:"其他费用（美元）",l_sell:"销售单价（美元）。不确定请留 0",btn:"计算到岸成本",ex:"试试示例：",r_title:"你的结果",r_goods:"货值",r_duty:"进口关税",r_vat:"增值税 / 税费",r_ship:"运费 + 保险",r_agent:"代理费",r_other:"其他费用",r_total:"到岸总成本",r_unit:"单位到岸成本",r_rev:"收入",r_profit:"毛利",r_margin:"利润率",r_formula:"计算方法（简化）：增值税按货值 + 关税 + 运费计算。关税按货值计算。请按 HS 编码确认准确税率。",disclaimer:"这只是一个估算。实际关税和增值税取决于 HS 编码、产品类别和目的国的海关规定。付款前请先与货代或报关行确认。这里的税率是可编辑的示例，不是官方税率。"}
+};
+let lang='en';
+function setLang(l,btn){lang=l;document.querySelectorAll('.lang button').forEach(b=>b.classList.remove('on'));btn.classList.add('on');document.querySelectorAll('[data-i18n]').forEach(el=>{const k=el.getAttribute('data-i18n');if(T[l][k]) el.textContent=T[l][k];});}
+const presets={ID:{duty:10,vat:11},US:{duty:7.5,vat:0},EU:{duty:5,vat:20},UK:{duty:5,vat:20},SG:{duty:0,vat:9},MY:{duty:5,vat:8},OTHER:{duty:10,vat:10}};
+function applyPreset(){const p=presets[document.getElementById('dest').value];if(p){document.getElementById('duty').value=p.duty;document.getElementById('vat').value=p.vat;}}
+function fmt(n){return '$'+n.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2});}
+function calc(){
+const price=+document.getElementById('price').value||0, qty=+document.getElementById('qty').value||0, ship=+document.getElementById('ship').value||0, ins=+document.getElementById('ins').value||0, dutyP=+document.getElementById('duty').value||0, vatP=+document.getElementById('vat').value||0, agentP=+document.getElementById('agent').value||0, other=+document.getElementById('other').value||0, sell=+document.getElementById('sell').value||0;
+const goods=price*qty, duty=goods*dutyP/100, vat=(goods+duty+ship)*vatP/100, agent=goods*agentP/100, total=goods+duty+vat+ship+ins+agent+other, unit=qty?total/qty:0;
+document.getElementById('o_goods').textContent=fmt(goods);
+document.getElementById('o_duty').textContent=fmt(duty);
+document.getElementById('o_vat').textContent=fmt(vat);
+document.getElementById('o_ship').textContent=fmt(ship+ins);
+document.getElementById('o_agent').textContent=fmt(agent);
+document.getElementById('o_other').textContent=fmt(other);
+document.getElementById('o_total').textContent=fmt(total);
+document.getElementById('o_unit').textContent=fmt(unit);
+const pb=document.getElementById('profitBox');
+if(sell>0 && qty>0){const rev=sell*qty, profit=rev-total, margin=rev?profit/rev*100:0; pb.style.display='block'; document.getElementById('o_rev').textContent=fmt(rev); const pe=document.getElementById('o_profit'); pe.textContent=(profit<0?'-':'')+fmt(Math.abs(profit)); pe.className=profit>=0?'good':'bad'; document.getElementById('o_margin').textContent=margin.toFixed(1)+'%';} else {pb.style.display='none';}
+document.getElementById('result').style.display='block';
+document.getElementById('result').scrollIntoView({behavior:'smooth'});
+}
+function loadExample(){document.getElementById('price').value=5;document.getElementById('qty').value=1000;document.getElementById('ship').value=350;document.getElementById('ins').value=0;document.getElementById('dest').value='ID';applyPreset();document.getElementById('agent').value=5;document.getElementById('other').value=0;document.getElementById('sell').value=12;calc();}
+</script>
+</body>
+</html>

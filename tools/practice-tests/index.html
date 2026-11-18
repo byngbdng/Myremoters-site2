@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Practice Tests in Every Language | MyRemoters</title>
+<style>*{box-sizing:border-box}:root{color-scheme:dark}body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;margin:0;background:#05070A;color:#919293;line-height:1.5}.wrap{max-width:760px;margin:0 auto;padding:24px 16px 48px}.card{background:#131517;border:1px solid #2F3133;border-radius:14px;padding:20px;margin:14px 0}h1{font-size:26px;margin:8px 0 4px;color:#fff}.sub{color:#919293;font-size:14px}.lang{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}.lang button{flex:1 1 30%;padding:10px;border:1px solid #2F3133;background:#131517;color:#B8B9BA;border-radius:8px;cursor:pointer;font-weight:600}.lang button.on{background:#2563EB;color:#fff;border-color:#2563EB}.testgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.test{border:1px solid #2F3133;border-radius:12px;padding:16px;cursor:pointer;background:#131517}.test:hover{border-color:#2563EB}.test b{display:block;font-size:16px;color:#fff}.test span{font-size:13px;color:#919293}.q{margin:18px 0}.q b{display:block;margin-bottom:8px;color:#fff}.opt{display:block;width:100%;text-align:left;padding:11px 12px;margin:6px 0;border:1px solid #2F3133;border-radius:8px;background:#05070A;color:#B8B9BA;cursor:pointer}.opt.sel{background:#2563EB;color:#fff;border-color:#2563EB}.opt.correct{background:#14532d;border-color:#22c55e;color:#bbf7d0}.opt.wrong{background:#450a0a;border-color:#ef4444;color:#fecaca}.btn{width:100%;padding:14px;background:#2563EB;color:#fff;border:0;border-radius:10px;font-size:16px;font-weight:700;cursor:pointer;margin-top:14px}.btn2{background:transparent;color:#B8B9BA;border:1px solid #232527}.score{font-size:22px;font-weight:800;text-align:center;color:#fff}.exp{font-size:13px;color:#B8B9BA;background:#0B1A38;border-left:3px solid #2563EB;padding:8px 10px;margin:6px 0;display:none}.note{font-size:12px;color:#fcd34d;background:#201a05;border:1px solid #a16207;border-radius:8px;padding:12px}.brand{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:#7A7B7C;font-weight:700}.hidden{display:none}@keyframes fadeUp{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes pop{0%{transform:scale(.96);opacity:0}100%{transform:scale(1);opacity:1}}
+.wrap{animation:fadeIn .4s ease both}
+.card{animation:fadeUp .5s ease both}
+.btn{transition:transform .15s ease,filter .15s ease}
+.btn:hover{transform:translateY(-1px);filter:brightness(1.12)}
+.btn:active{transform:translateY(0) scale(.98)}
+.adslot{border:1px dashed #2F3133;border-radius:12px;background:#0B0E12;min-height:90px;display:flex;align-items:center;justify-content:center;margin:14px 0}
+.adslot .ad-label{font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:#7A7B7C}
+.ad-rect{min-height:250px;max-width:336px;margin-left:auto;margin-right:auto}
+@media(max-width:480px){.adslot{min-height:100px}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+.test{transition:transform .15s ease,border-color .15s ease,box-shadow .15s ease;animation:fadeUp .5s ease both}
+.test:hover{transform:translateY(-3px);border-color:#2563EB;box-shadow:0 8px 24px rgba(0,0,0,.35)}
+.test:nth-child(2){animation-delay:.05s}.test:nth-child(3){animation-delay:.1s}.test:nth-child(4){animation-delay:.15s}.test:nth-child(5){animation-delay:.2s}.test:nth-child(6){animation-delay:.25s}.test:nth-child(7){animation-delay:.3s}.test:nth-child(8){animation-delay:.35s}.test:nth-child(9){animation-delay:.4s}.test:nth-child(10){animation-delay:.45s}
+.opt{transition:transform .12s ease,border-color .12s ease,background .12s ease}
+.opt:hover{transform:translateY(-1px);border-color:#2563EB}
+.lang button{transition:background .15s ease,transform .12s ease}
+.lang button:hover{transform:translateY(-1px)}
+.q{animation:fadeUp .4s ease both}
+.score{animation:pop .35s ease both}</style></head>
+<body><div class="wrap">
+<div class="brand">MyRemoters • Practice Tests</div>
+<h1 data-i18n="title">Practice tests in every language</h1>
+<p class="sub" data-i18n="subtitle">Free practice for TOEFL, IELTS, CPNS, HSK, TOEIC, JLPT, TOPIK and Goethe A1. Professional certification simulations, like the Content Moderator Test, PMP and Six Sigma, are in the section below. Pick a test, answer 10 questions, and see your score right away. Every round draws a fresh 10 from a pool of 20.</p>
+<div class="lang"><button class="on" onclick="setLang('en',this)">English</button><button onclick="setLang('id',this)">Bahasa Indonesia</button><button onclick="setLang('zh',this)">中文</button><button onclick="setLang('de',this)">Deutsch</button><button onclick="setLang('tr',this)">Türkçe</button><button onclick="setLang('ja',this)">日本語</button><button onclick="setLang('ko',this)">한국어</button></div>
+
+<!-- Google AdSense: paste your ad code inside this box -->
+<div class="adslot"><span class="ad-label">Advertisement</span></div>
+<div id="home" class="card">
+<h2 data-i18n="choose">Pick a test</h2>
+<div class="testgrid">
+<div class="test" onclick="startTest('toefl')"><b>TOEFL Prediction</b><span>Structure &amp; Reading • 10 Q • EN</span></div>
+<div class="test" onclick="startTest('ielts')"><b>IELTS Vocabulary</b><span>Academic words • 10 Q • EN</span></div>
+<div class="test" onclick="startTest('cpns')"><b>CPNS: TIU</b><span>Numerik &amp; Figural • 10 Soal • ID</span></div>
+<div class="test" onclick="startTest('hsk')"><b>HSK 1: Chinese</b><span>中文基础 • 10 Q • ZH + Pinyin</span></div>
+<div class="test" onclick="startTest('toeic')"><b>TOEIC: Business English</b><span>Workplace • 10 Q • EN</span></div>
+<div class="test" onclick="startTest('jlpt')"><b>JLPT N5: Japanese</b><span>日本語基礎 • 10 Q • JA</span></div>
+<div class="test" onclick="startTest('topik')"><b>TOPIK 1: Korean</b><span>한국어 기초 • 10 Q • KO</span></div>
+<div class="test" onclick="startTest('goethe')"><b>Goethe A1: German</b><span>Deutsch Grundlagen • 10 Q • DE</span></div>
+<div class="test" onclick="startTest('turkish')"><b>Turkish Basics: Türkçe</b><span>Temel Türkçe • 10 Q • TR</span></div>
+</div>
+<p class="sub" style="margin-top:14px" data-i18n="hubnote">Everything here is free to try. No sign-up, and nothing you do leaves your browser.</p>
+<h2 style="margin-top:20px">Professional certification simulations</h2>
+<p class="sub">All simulations in this section are paid. Each one draws a fresh set of 10 questions from a pool of 20. The Content Moderator Test is available in 7 languages.</p>
+<div class="testgrid">
+<div class="test" onclick="alert('🔒 Exclusive. The Content Moderator Test is paid only, $3. Get it at myremoters.com/tools/moderator-test')"><b>🔒 Content Moderator Test, Exclusive</b><span>Trust &amp; Safety • 30 Q pool • Paid only • $3 • 7 languages</span></div>
+<div class="test" onclick="alert('🔒 Exclusive. The PMP Assessment Simulation is paid only, $3. Get it at myremoters.com/tools/professional-test')"><b>🔒 PMP Assessment Simulation</b><span>Project Management • 20 Q pool • Paid only • $3</span></div>
+<div class="test" onclick="alert('🔒 Exclusive. The Six Sigma Green Belt Simulation is paid only, $3. Get it at myremoters.com/tools/professional-test')"><b>🔒 Six Sigma Green Belt Simulation</b><span>Quality &amp; Process • 20 Q pool • Paid only • $3</span></div>
+<div class="test" onclick="alert('🔒 Exclusive. The Six Sigma Black Belt Simulation is paid only, $3. Get it at myremoters.com/tools/professional-test')"><b>🔒 Six Sigma Black Belt Simulation</b><span>Quality &amp; Process • 20 Q pool • Paid only • $3</span></div>
+<div class="test" onclick="alert('🔒 Exclusive. The CAPM Assessment Simulation is paid only, $3. Get it at myremoters.com/tools/professional-test')"><b>🔒 CAPM Assessment Simulation</b><span>Project Management • 20 Q pool • Paid only • $3</span></div>
+<div class="test" onclick="alert('🔒 Exclusive. The Agile Scrum Master Simulation is paid only, $3. Get it at myremoters.com/tools/professional-test')"><b>🔒 Agile Scrum Master Simulation</b><span>Agile • 20 Q pool • Paid only • $3</span></div>
+<div class="test" onclick="alert('🔒 Exclusive. The Python Programming Assessment is paid only, $3. Get it at myremoters.com/tools/professional-test')"><b>🔒 Python Programming Assessment</b><span>Tech • 20 Q pool • Paid only • $3</span></div>
+<div class="test" onclick="alert('🔒 Exclusive. The SQL &amp; Data Assessment is paid only, $3. Get it at myremoters.com/tools/professional-test')"><b>🔒 SQL &amp; Data Assessment</b><span>Tech • 20 Q pool • Paid only • $3</span></div>
+<div class="test" onclick="alert('🔒 Exclusive. The JavaScript &amp; Web Assessment is paid only, $3. Get it at myremoters.com/tools/professional-test')"><b>🔒 JavaScript &amp; Web Assessment</b><span>Tech • 20 Q pool • Paid only • $3</span></div>
+<div class="test" onclick="alert('🔒 Exclusive. The Cybersecurity Fundamentals Assessment is paid only, $3. Get it at myremoters.com/tools/professional-test')"><b>🔒 Cybersecurity Fundamentals Assessment</b><span>Tech • 20 Q pool • Paid only • $3</span></div>
+</div>
+<p class="sub" style="margin-top:10px">Practice questions only, written in the style of the real exams. Not official PMP, CAPM, Six Sigma, or Scrum questions, and not affiliated with PMI, ASQ, IASSC, or Scrum.org.</p>
+</div>
+
+<div id="quiz" class="card hidden">
+<button class="btn btn2" onclick="goHome()" data-i18n="back">← All tests</button>
+<h2 id="testTitle" style="margin-top:14px"></h2>
+<p class="sub" id="testDesc"></p>
+<div id="questions"></div>
+<button class="btn" onclick="submitQuiz()" data-i18n="submit">Check my score</button>
+<div id="scoreBox" class="hidden"><div class="score" id="scoreText"></div><p class="sub" style="text-align:center" id="scoreNote"></p><button class="btn btn2" onclick="startTest(currentTest)" data-i18n="retry">Try again</button></div>
+</div>
+
+<!-- Google AdSense: paste your ad code inside this box -->
+<div class="adslot ad-rect"><span class="ad-label">Advertisement</span></div>
+<div class="note" data-i18n="disclaimer">Just practice questions, written in the style of the real exams so you can learn. These aren't official TOEFL, IELTS, CPNS or HSK questions, and we're not connected to ETS, the British Council, BKN or Hanban. Use them to practice, and check the official sources for the real exam.</div>
+<p style="text-align:center;font-size:12px;color:#7A7B7C">MyRemoters • myremoters.com/tools/practice-tests</p>
+</div>
+<script>
+const UI={en:{title:"Practice tests in every language",subtitle:"Free practice for TOEFL, IELTS, CPNS, HSK, TOEIC, JLPT, TOPIK and Goethe A1. Professional certification simulations, like the Content Moderator Test, PMP and Six Sigma, are in the section below. Pick a test, answer 10 questions, and see your score right away. Every round draws a fresh 10 from a pool of 20.",choose:"Pick a test",hubnote:"Everything here is free to try. No sign-up, and nothing you do leaves your browser.",back:"← All tests",submit:"Check my score",retry:"Try again",disclaimer:"Just practice questions, written in the style of the real exams so you can learn. These aren't official TOEFL, IELTS, CPNS or HSK questions, and we're not connected to ETS, the British Council, BKN or Hanban. Use them to practice, and check the official sources for the real exam.",ex:"Excellent! You really know your stuff.",gd:"Good work. Have another look at the ones you missed.",kp:"Keep going. Read the notes above and give it another try."},
+id:{title:"Latihan soal dalam semua bahasa",subtitle:"Latihan gratis buat TOEFL, IELTS, CPNS, HSK, TOEIC, JLPT, TOPIK, dan Goethe A1. Simulasi sertifikasi profesional, seperti Content Moderator Test, PMP dan Six Sigma, ada di section bawah. Pilih tes, jawab 10 soal, langsung lihat skor kamu. Tiap ronde soalnya diacak dari 20 soal.",choose:"Pilih tes",hubnote:"Semuanya gratis dicoba. Nggak perlu daftar, dan nggak ada data yang keluar dari browser kamu.",back:"← Semua tes",submit:"Cek skor saya",retry:"Coba lagi",disclaimer:"Ini cuma soal latihan, ditulis dengan gaya ujian aslinya biar kamu bisa belajar. Ini bukan soal resmi TOEFL, IELTS, CPNS, atau HSK, dan kami nggak terafiliasi sama ETS, British Council, BKN, atau Hanban. Pakai buat latihan, dan cek sumber resmi buat ujian beneran.",ex:"Bagus banget! Kamu beneran ngerti.",gd:"Bagus. Coba lihat lagi soal yang tadi salah.",kp:"Terus latihan. Baca pembahasan di atas, terus coba lagi."},
+zh:{title:"各种语言的模拟测试",subtitle:"免费练习托福、雅思、CPNS、HSK、TOEIC、JLPT、TOPIK 和歌德 A1。专业认证模拟测试（如内容审核测试、PMP、六西格玛）在下面的版块中。选一个测试，回答 10 道题，马上看到分数。每轮从 20 道题库中随机抽取 10 道。",choose:"选一个测试",hubnote:"这里全部免费试用。不用注册，你做的所有内容都不会离开浏览器。",back:"← 所有测试",submit:"查看我的分数",retry:"再试一次",disclaimer:"这些只是练习题，按照真实考试的风格编写，帮你学习。不是官方托福、雅思、CPNS 或 HSK 真题，我们与 ETS、British Council、BKN、Hanban 没有任何关系。用来练习就好，真正的考试请以官方来源为准。",ex:"太棒了！你真的掌握了。",gd:"做得不错，再看看答错的题。",kp:"继续加油，读一读上面的解析，再试一次。"},
+de:{title:"Übungstests in allen Sprachen",subtitle:"Kostenlose Übung für TOEFL, IELTS, CPNS, HSK, TOEIC, JLPT, TOPIK und Goethe A1. Simulationen für Berufszertifizierungen, wie der Content-Moderator-Test, PMP und Six Sigma, findest du im Abschnitt unten. Such dir einen Test aus, beantworte 10 Fragen und sieh dir sofort deine Punktzahl an. Jede Runde zieht 10 neue Fragen aus einem Pool von 20.",choose:"Such dir einen Test aus",hubnote:"Hier ist alles kostenlos zum Ausprobieren. Keine Anmeldung, und nichts, was du tust, verlässt deinen Browser.",back:"← Alle Tests",submit:"Punktzahl ansehen",retry:"Nochmal versuchen",disclaimer:"Das sind nur Übungsfragen, geschrieben im Stil der echten Prüfungen, damit du lernen kannst. Es sind keine offiziellen TOEFL-, IELTS-, CPNS- oder HSK-Fragen, und wir haben nichts mit ETS, dem British Council, BKN oder Hanban zu tun. Nutz sie zum Üben und schau für die echte Prüfung in die offiziellen Quellen.",ex:"Stark! Du weißt wirklich, wovon du redest.",gd:"Gut gemacht. Schau dir die Fragen an, die du verpasst hast.",kp:"Weiter so. Lies die Erklärungen oben und versuch es nochmal."},
+tr:{title:"Her dilde deneme testleri",subtitle:"TOEFL, IELTS, CPNS, HSK, TOEIC, JLPT, TOPIK ve Goethe A1 için ücretsiz pratik. İçerik Moderatör Testi, PMP ve Six Sigma gibi profesyonel sertifika simülasyonları aşağıdaki bölümdedir. Bir test seç, 10 soru cevapla ve puanını hemen gör. Her tur 20 soruluk havuzdan 10 yeni soru çeker.",choose:"Bir test seç",hubnote:"Buradaki her şey ücretsiz denenebilir. Kayıt yok ve yaptığın hiçbir şey tarayıcıdan çıkmaz.",back:"← Tüm testler",submit:"Puanımı gör",retry:"Tekrar dene",disclaimer:"Bunlar sadece pratik soruları, öğrenmen için gerçek sınavların tarzında yazıldı. Resmi TOEFL, IELTS, CPNS ya da HSK soruları değil ve ETS, British Council, BKN ya da Hanban ile bağlantımız yok. Pratik için kullan, gerçek sınav için resmi kaynaklara bak.",ex:"Harika! Konuya gerçekten hakimsin.",gd:"İyi iş. Kaçırdığın sorulara bir daha bak.",kp:"Devam et. Yukarıdaki açıklamaları oku ve tekrar dene."},
+ja:{title:"すべての言語の練習テスト",subtitle:"TOEFL、IELTS、CPNS、HSK、TOEIC、JLPT、TOPIK、ゲーテA1の無料練習。コンテンツモデレーターテスト、PMP、シックスシグマなどのプロ認定シミュレーションは下のセクションにあります。テストを選んで10問に答え、すぐにスコアを確認しましょう。毎回20問のプールから10問をランダムに出題します。",choose:"テストを選ぶ",hubnote:"ここはすべて無料で試せます。登録は不要で、あなたの操作がブラウザの外に出ることはありません。",back:"← すべてのテスト",submit:"スコアを見る",retry:"もう一度試す",disclaimer:"これは学習用の練習問題で、本番の試験に近い形で作られています。公式のTOEFL、IELTS、CPNS、HSKの問題ではなく、ETS、ブリティッシュ・カウンシル、BKN、Hanbanとは関係ありません。練習に使ってください。本番は公式情報を確認してください。",ex:"すごい！本当によくわかっていますね。",gd:"よくできました。間違えた問題を見直してみましょう。",kp:"この調子で続けましょう。上の解説を読んで、もう一度やってみてください。"},
+ko:{title:"모든 언어 모의고사",subtitle:"TOEFL, IELTS, CPNS, HSK, TOEIC, JLPT, TOPIK, 괴테 A1 무료 연습. 콘텐츠 모더레이터 테스트, PMP, 식스 시그마 같은 전문 자격증 모의고사는 아래 섹션에 있습니다. 테스트를 선택하고 10문항에 답하면 점수를 바로 확인할 수 있습니다. 매 라운드마다 20문항 중 10문항을 새로 뽑습니다.",choose:"테스트 선택",hubnote:"여기는 모두 무료로 체험할 수 있습니다. 가입할 필요도 없고, 여러분의 활동이 브라우저를 떠나지 않습니다.",back:"← 모든 테스트",submit:"내 점수 보기",retry:"다시 시도",disclaimer:"이것은 학습용 연습 문제로, 실제 시험과 비슷한 형태로 만들었습니다. 공식 TOEFL, IELTS, CPNS, HSK 문제가 아니며 ETS, British Council, BKN, Hanban과 무관합니다. 연습용으로 사용하고, 실제 시험은 공식 출처를 확인하세요.",ex:"훌륭합니다! 정말 잘 알고 계시네요.",gd:"잘했습니다. 틀린 문제를 다시 살펴보세요.",kp:"계속하세요. 위의 설명을 읽고 다시 시도해 보세요."}};
+let lang='en'; function setLang(l,b){lang=l;document.querySelectorAll('.lang button').forEach(x=>x.classList.remove('on'));b.classList.add('on');document.querySelectorAll('[data-i18n]').forEach(el=>{const k=el.getAttribute('data-i18n');if(UI[l][k])el.textContent=UI[l][k];});}
+
+const TESTS={
+toefl:{title:"TOEFL Prediction: Structure & Reading",desc:"10 questions in TOEFL ITP style, drawn fresh from a pool of 20 each time. Pick the answer that fits best.",qs:[
+{q:"Which sentence is correct? ___ the rain, we went out.",o:["Despite","Although","In spite","Because of"],a:0,e:"'Despite' goes with a noun, so 'Despite the rain' is right."},
+{q:"She ___ to school every day.",o:["go","goes","going","gone"],a:1,e:"With 'she' the verb takes an s: she goes."},
+{q:"The book ___ on the table is mine.",o:["which","who","whose","where"],a:0,e:"For things, the right word is 'which'."},
+{q:"Neither John nor his friends ___ here.",o:["is","are","was","has"],a:1,e:"With 'neither...nor', the verb matches the nearer subject, 'friends', so it's 'are'."},
+{q:"If I had money, I ___ travel the world.",o:["will","would","can","shall"],a:1,e:"This is a second conditional, so it takes 'would'."},
+{q:"What does 'rapid' mean?",o:["slow","fast","late","quiet"],a:1,e:"'Rapid' means fast."},
+{q:"What does 'abundant' mean?",o:["scarce","plentiful","empty","rare"],a:1,e:"'Abundant' means plentiful, there's a lot of it."},
+{q:"He has lived here ___ 2015.",o:["for","since","from","at"],a:1,e:"Use 'since' with a point in time like 2015. 'For' is for a length of time."},
+{q:"___ you ever been to Japan?",o:["Did","Have","Are","Do"],a:1,e:"The present perfect is 'Have you ever been...?'"},
+{q:"The report must ___ by Friday.",o:["finish","be finished","finished","finishing"],a:1,e:"This is passive, so it's 'must be finished'."},
+{q:"What does 'meticulous' mean?",o:["careless","very careful and precise","quick","loud"],a:1,e:"'Meticulous' means very careful and precise, paying attention to every detail."},
+{q:"She has worked here ___ 2018.",o:["for","since","from","at"],a:1,e:"Use 'since' with a point in time like 2018."},
+{q:"Neither the teacher nor the students ___ in the room.",o:["is","are","was","has"],a:1,e:"With 'neither...nor', the verb matches the nearer subject, 'students', so it's 'are'."},
+{q:"If it rains tomorrow, we ___ stay home.",o:["will","would","can","shall"],a:0,e:"First conditional, a real possibility: if + present, will + verb."},
+{q:"The movie was ___ interesting that we watched it twice.",o:["so","such","very","too"],a:0,e:"'So interesting that...' is the right pattern."},
+{q:"What does 'reluctant' mean?",o:["eager","unwilling","happy","proud"],a:1,e:"'Reluctant' means unwilling, not wanting to do something."},
+{q:"He is the man ___ car was stolen.",o:["which","who","whose","whom"],a:2,e:"'Whose' shows possession: the man whose car was stolen."},
+{q:"By the time you arrive, I ___ dinner.",o:["cook","will cook","will have cooked","have cooked"],a:2,e:"Future perfect: 'will have cooked' for something finished before a future point."},
+{q:"What does 'ambiguous' mean?",o:["clear","unclear, open to more than one meaning","certain","simple"],a:1,e:"'Ambiguous' means unclear, it can be understood in more than one way."},
+{q:"___ the traffic, we arrived on time.",o:["Despite","Although","Because","Unless"],a:0,e:"'Despite' goes with a noun: 'Despite the traffic'."}]},
+ielts:{title:"IELTS Vocabulary: Academic",desc:"10 questions, drawn fresh from a pool of 20 each time. Pick the word that fits best.",qs:[
+{q:"What is a 'phenomenon'?",o:["a rare event","a fact or event that can be observed","a theory","a mistake"],a:1,e:"A phenomenon is a fact or event you can observe."},
+{q:"What does 'to mitigate' mean?",o:["make worse","make less severe","ignore","increase"],a:1,e:"To mitigate is to make something less severe."},
+{q:"Which phrase sounds right? ___ a conclusion.",o:["draw","pull","take","make"],a:0,e:"The fixed phrase is 'draw a conclusion'."},
+{q:"What does 'ubiquitous' mean?",o:["rare","present everywhere","hidden","expensive"],a:1,e:"Ubiquitous means present everywhere."},
+{q:"What is the opposite of 'scarce'?",o:["rare","abundant","limited","few"],a:1,e:"The opposite of 'scarce' is 'abundant'."},
+{q:"What does 'to scrutinise' mean?",o:["glance quickly","examine carefully","ignore","praise"],a:1,e:"To scrutinise is to examine something very carefully."},
+{q:"What is a 'prerequisite'?",o:["optional","required beforehand","forbidden","unnecessary"],a:1,e:"A prerequisite is something you need before you can do something else."},
+{q:"What does 'feasible' mean?",o:["impossible","practical / achievable","expensive","theoretical"],a:1,e:"'Feasible' means practical, something you can actually do."},
+{q:"Which is the formal way to say 'get better'?",o:["improve","fix up","go up","pick up"],a:0,e:"'Improve' is the formal, academic choice."},
+{q:"What does 'controversial' mean?",o:["everyone agrees","causing public disagreement","boring","certain"],a:1,e:"Something controversial causes public disagreement."},
+{q:"What does 'to alleviate' mean?",o:["to make worse","to make less severe","to ignore","to delay"],a:1,e:"To alleviate is to make something less severe, like pain or a problem."},
+{q:"What is the opposite of 'obsolete'?",o:["old","modern, still in use","broken","rare"],a:1,e:"The opposite of 'obsolete' is modern, something still in use."},
+{q:"Which phrase sounds right? ___ attention to detail.",o:["pay","give","take","make"],a:0,e:"The fixed phrase is 'pay attention to detail'."},
+{q:"What does 'inevitable' mean?",o:["avoidable","certain to happen","unlikely","rare"],a:1,e:"'Inevitable' means certain to happen, you can't avoid it."},
+{q:"What does 'to diminish' mean?",o:["to grow","to become smaller","to hide","to praise"],a:1,e:"To diminish is to become smaller or less."},
+{q:"What does 'to sustain' mean?",o:["to stop","to keep going over time","to hide","to break"],a:1,e:"To sustain is to keep something going over time."},
+{q:"What does 'prevalent' mean?",o:["rare","widespread, common","hidden","new"],a:1,e:"'Prevalent' means widespread, common in a place or time."},
+{q:"Which is the formal way to say 'look into'?",o:["check out","investigate","peek at","glance"],a:1,e:"'Investigate' is the formal, academic choice."},
+{q:"What does 'candid' mean?",o:["secretive","honest and direct","polite","shy"],a:1,e:"'Candid' means honest and direct, saying what you really think."},
+{q:"What does 'to encompass' mean?",o:["to exclude","to include, to cover","to ignore","to divide"],a:1,e:"To encompass is to include or cover something."}]},
+cpns:{title:"CPNS: TIU (Numerik & Figural)",desc:"10 soal gaya SKD TIU, diambil acak dari 20 soal tiap kali main. Pilih jawaban yang paling benar.",qs:[
+{q:"2, 4, 8, 16, 32, ... Berapa selanjutnya?",o:["48","56","64","96"],a:2,e:"Tiap langkah dikali 2. Jadi 32 × 2 = 64."},
+{q:"Kalau 5x + 10 = 35, x itu berapa?",o:["3","5","7","10"],a:1,e:"5x = 25, jadi x = 5."},
+{q:"15% dari 200 itu berapa?",o:["20","25","30","35"],a:2,e:"15/100 × 200 = 30."},
+{q:"Apa antonim 'abstrak'?",o:["nyata","samar","gaib","teoritis"],a:0,e:"Lawan 'abstrak' itu 'nyata'."},
+{q:"3, 6, 11, 18, 27, ... Berapa selanjutnya?",o:["36","38","39","40"],a:1,e:"Selisihnya naik terus: +3, +5, +7, +9, +11. Jadi 27 + 11 = 38."},
+{q:"Baju Rp150.000 didiskon 20%. Berapa yang harus dibayar?",o:["Rp100.000","Rp110.000","Rp120.000","Rp130.000"],a:2,e:"150.000 × 80% = 120.000."},
+{q:"Kalau semua A adalah B, dan C adalah A, apa yang benar?",o:["C adalah B","C bukan B","B adalah C","Tidak dapat disimpulkan"],a:0,e:"C itu A, A itu B, jadi C pasti B."},
+{q:"Rata-rata dari 4, 8, 12, 16 itu berapa?",o:["8","9","10","12"],a:2,e:"(4 + 8 + 12 + 16) / 4 = 10."},
+{q:"Apa sinonim 'efektif'?",o:["boros","berdaya guna","lambat","mahal"],a:1,e:"'Efektif' artinya berdaya guna."},
+{q:"7, 14, 28, 56, ... Berapa selanjutnya?",o:["84","98","112","120"],a:2,e:"Tiap langkah dikali 2. Jadi 56 × 2 = 112."},
+{q:"5, 10, 20, 40, ... Berapa selanjutnya?",o:["60","70","80","100"],a:2,e:"Tiap langkah dikali 2. Jadi 40 × 2 = 80."},
+{q:"Kalau 3x - 6 = 12, x itu berapa?",o:["4","5","6","7"],a:2,e:"3x = 18, jadi x = 6."},
+{q:"25% dari 400 itu berapa?",o:["75","80","100","125"],a:2,e:"25/100 × 400 = 100."},
+{q:"Apa sinonim 'akurat'?",o:["salah","tepat","cepat","lambat"],a:1,e:"'Akurat' artinya tepat dan benar."},
+{q:"4, 9, 16, 25, 36, ... Berapa selanjutnya?",o:["42","44","49","56"],a:2,e:"Ini bilangan kuadrat: 2², 3², 4², 5², 6², lalu 7² = 49."},
+{q:"Sebuah tas Rp200.000 didiskon 25%. Berapa yang harus dibayar?",o:["Rp125.000","Rp150.000","Rp160.000","Rp175.000"],a:1,e:"200.000 × 75% = 150.000."},
+{q:"Kalau semua guru adalah pegawai, dan Budi adalah guru, apa yang benar?",o:["Budi adalah pegawai","Budi bukan pegawai","Pegawai adalah Budi","Tidak dapat disimpulkan"],a:0,e:"Budi itu guru, guru itu pegawai, jadi Budi pasti pegawai."},
+{q:"Rata-rata dari 6, 9, 12 itu berapa?",o:["7","8","9","10"],a:2,e:"(6 + 9 + 12) / 3 = 9."},
+{q:"Apa antonim 'rajin'?",o:["giat","malas","tekun","ulet"],a:1,e:"Lawan 'rajin' itu 'malas'."},
+{q:"100, 90, 80, 70, ... Berapa selanjutnya?",o:["50","55","60","65"],a:2,e:"Tiap langkah dikurang 10. Jadi 70 - 10 = 60."}]},
+hsk:{title:"HSK 1: Chinese Basics 中文基础",desc:"10 questions with pinyin and characters, drawn fresh from a pool of 20 each time. For beginners.",qs:[
+{q:"你好 (nǐ hǎo) means:",o:["Goodbye","Hello","Thank you","Sorry"],a:1,e:"你好 means hello."},
+{q:"谢谢 (xièxie) means:",o:["Hello","Sorry","Thank you","Please"],a:2,e:"谢谢 means thank you."},
+{q:"Which number is 三 (sān)?",o:["2","3","4","5"],a:1,e:"一 is 1, 二 is 2, and 三 is 3."},
+{q:"我 (wǒ) means:",o:["You","He","I / me","We"],a:2,e:"我 means I or me."},
+{q:"水 (shuǐ) means:",o:["Fire","Water","Rice","Tea"],a:1,e:"水 means water."},
+{q:"今天 (jīntiān) means:",o:["Yesterday","Tomorrow","Today","Now"],a:2,e:"今天 means today."},
+{q:"大 (dà) means:",o:["Small","Big","Long","Short"],a:1,e:"大 means big. 小 means small."},
+{q:"你叫什么名字？(Nǐ jiào shénme míngzi?) How do you answer?",o:["我叫李明。","你好。","谢谢。","再见。"],a:0,e:"They're asking your name, so answer with 我叫… which means 'my name is…'."},
+{q:"一 + 一 = ?",o:["一","二","三","四"],a:1,e:"1 + 1 = 2, and 2 is 二."},
+{q:"再见 (zàijiàn) means:",o:["Hello","Goodbye","Welcome","Good night"],a:1,e:"再见 means goodbye."},
+{q:"你 (nǐ) means:",o:["I","You","He","She"],a:1,e:"你 means you."},
+{q:"他 (tā) means:",o:["I","You","He / him","We"],a:2,e:"他 means he or him."},
+{q:"中国 (Zhōngguó) means:",o:["Japan","Korea","China","Thailand"],a:2,e:"中国 means China."},
+{q:"好 (hǎo) means:",o:["Bad","Good","Big","Small"],a:1,e:"好 means good."},
+{q:"人 (rén) means:",o:["Water","Person","Mountain","Rice"],a:1,e:"人 means person."},
+{q:"学习 (xuéxí) means:",o:["To teach","To study","To work","To play"],a:1,e:"学习 means to study."},
+{q:"不 (bù) means:",o:["Yes","No / not","Please","Thank you"],a:1,e:"不 means no or not."},
+{q:"多少钱？(Duōshao qián?) means:",o:["What time is it?","How much does it cost?","Where is it?","Who are you?"],a:1,e:"多少钱 means 'how much does it cost?'."},
+{q:"我爱你 (Wǒ ài nǐ) means:",o:["I like you","I love you","I miss you","I hate you"],a:1,e:"我爱你 means 'I love you'."},
+{q:"吃饭 (chī fàn) means:",o:["To drink","To eat a meal","To sleep","To cook"],a:1,e:"吃饭 means to eat a meal."}]},
+toeic:{title:"TOEIC: Business English",desc:"10 questions in workplace English, drawn fresh from a pool of 20 each time. Pick the best answer.",qs:[
+{q:"Please ___ the attached file before the meeting.",o:["review","reviews","reviewing","reviewed"],a:0,e:"After 'please' comes the base verb: review."},
+{q:"The meeting has been ___ to Friday.",o:["postponed","postpone","postponing","postpones"],a:0,e:"This is passive: 'has been postponed'."},
+{q:"We need to ___ the budget by next week.",o:["final","finally","finalize","finalizing"],a:2,e:"After 'need to' comes a verb: finalize."},
+{q:"Which is the most formal way to ask for the report?",o:["Send report now.","Could you please send me the report?","Give me report.","Report?"],a:1,e:"'Could you please...' is the formal business form."},
+{q:"What does 'deadline' mean?",o:["start date","last date to finish","holiday","meeting time"],a:1,e:"A deadline is the last date to finish something."},
+{q:"The manager asked the team to ___ the proposal.",o:["submit","submits","submitted","submitting"],a:0,e:"After 'asked to' comes the base verb: submit."},
+{q:"___ the delay, we will deliver on Monday.",o:["Despite","Because","Although","Unless"],a:0,e:"'Despite' goes with a noun: 'Despite the delay'."},
+{q:"Please confirm your ___ by email.",o:["attend","attendance","attending","attended"],a:1,e:"You confirm your 'attendance'. That's the noun."},
+{q:"The new policy will take ___ next month.",o:["effect","affect","effective","effectively"],a:0,e:"The phrase is 'take effect', meaning it becomes active."},
+{q:"If you have any questions, please do not ___ to contact us.",o:["hesitate","hesitating","hesitated","hesitation"],a:0,e:"The phrase is 'do not hesitate to contact us'."},
+{q:"Please ___ the report to me by Friday.",o:["send","sends","sending","sent"],a:0,e:"After 'please' comes the base verb: send."},
+{q:"The new office will ___ next month.",o:["open","opens","opening","opened"],a:0,e:"'Will' takes the base verb: will open."},
+{q:"We are looking forward ___ working with you.",o:["to","for","at","in"],a:0,e:"The phrase is 'looking forward to' + verb-ing."},
+{q:"What does 'invoice' mean?",o:["a bill asking for payment","a meeting note","a holiday request","a job offer"],a:0,e:"An invoice is a bill asking for payment."},
+{q:"The shipment was delayed ___ bad weather.",o:["because of","despite","although","unless"],a:0,e:"'Because of' + noun: 'because of bad weather'."},
+{q:"Please let me know if you need ___ assistance.",o:["any","some","many","few"],a:0,e:"In offers and questions, 'any' is the natural choice."},
+{q:"The contract needs to be ___ before Monday.",o:["sign","signs","signed","signing"],a:2,e:"Passive: 'needs to be signed'."},
+{q:"___ you for your prompt reply.",o:["Thank","Thanks","Thanking","Thanked"],a:0,e:"'Thank you for your prompt reply' is the standard business phrase."},
+{q:"What does 'outstanding' mean when talking about a bill?",o:["excellent","not yet paid","overdue by a year","cancelled"],a:1,e:"An outstanding bill is one that hasn't been paid yet."},
+{q:"I am writing to ___ about the job opening.",o:["inquire","inquiry","inquiring","inquired"],a:0,e:"After 'to' comes the base verb: to inquire."}]},
+jlpt:{title:"JLPT N5: Japanese Basics 日本語基礎",desc:"10 questions on hiragana, words and grammar, drawn fresh from a pool of 20 each time. For beginners.",qs:[
+{q:"こんにちは (konnichiwa) means:",o:["Goodbye","Hello","Thank you","Sorry"],a:1,e:"こんにちは means hello."},
+{q:"ありがとう (arigatō) means:",o:["Hello","Sorry","Thank you","Please"],a:2,e:"ありがとう means thank you."},
+{q:"Which Japanese word means 'water'?",o:["みず (mizu)","ひ (hi)","やま (yama)","はな (hana)"],a:0,e:"みず means water. ひ is fire and やま is mountain."},
+{q:"What is すし (sushi)?",o:["A drink","A Japanese food","A city","A person"],a:1,e:"すし is sushi, Japanese food."},
+{q:"今日 (kyō) means:",o:["Yesterday","Tomorrow","Today","Now"],a:2,e:"今日 means today."},
+{q:"大きい (ōkii) means:",o:["Small","Big","Long","Short"],a:1,e:"大きい means big. 小さい means small."},
+{q:"私は学生です。(Watashi wa gakusei desu.) means:",o:["I am a teacher.","I am a student.","I am Japanese.","I am busy."],a:1,e:"私 means I and 学生 means student."},
+{q:"Which number is 三 (san)?",o:["1","2","3","4"],a:2,e:"一 is 1, 二 is 2, and 三 is 3."},
+{q:"さようなら (sayōnara) means:",o:["Hello","Goodbye","Welcome","Good night"],a:1,e:"さようなら means goodbye."},
+{q:"私は日本 ___ 行きます。(I go to Japan.) Which particle fits?",o:["に (ni)","を (wo)","で (de)","は (wa)"],a:0,e:"に marks the destination: 日本に行きます."},
+{q:"おはようございます (ohayō gozaimasu) means:",o:["Good evening","Good morning","Good night","Goodbye"],a:1,e:"おはようございます means good morning."},
+{q:"すみません (sumimasen) means:",o:["Thank you","Excuse me / Sorry","Please","Hello"],a:1,e:"すみません means excuse me or sorry."},
+{q:"Which Japanese word means 'mountain'?",o:["かわ (kawa)","やま (yama)","うみ (umi)","そら (sora)"],a:1,e:"やま means mountain. かわ is river and うみ is sea."},
+{q:"ねこ (neko) is:",o:["A dog","A cat","A bird","A fish"],a:1,e:"ねこ means cat. いぬ is dog."},
+{q:"明日 (ashita) means:",o:["Yesterday","Tomorrow","Today","Now"],a:1,e:"明日 means tomorrow. 昨日 is yesterday."},
+{q:"小さい (chiisai) means:",o:["Big","Small","Long","Short"],a:1,e:"小さい means small. 大きい means big."},
+{q:"これは本です。(Kore wa hon desu.) means:",o:["This is a pen.","This is a book.","This is a bag.","This is a car."],a:1,e:"これ means this and 本 means book."},
+{q:"Which number is 十 (jū)?",o:["5","8","10","100"],a:2,e:"十 is 10."},
+{q:"おやすみなさい (oyasumi nasai) means:",o:["Good morning","Goodbye","Good night","Welcome"],a:2,e:"おやすみなさい means good night."},
+{q:"私は水を ___ ます。(I drink water.) Which verb fits?",o:["飲み (nomi)","食べ (tabe)","読み (yomi)","書き (kaki)"],a:0,e:"飲みます means to drink. 食べます is to eat."}]},
+topik:{title:"TOPIK 1: Korean Basics 한국어 기초",desc:"10 questions on Hangul, words and grammar, drawn fresh from a pool of 20 each time. For beginners.",qs:[
+{q:"안녕하세요 (annyeonghaseyo) means:",o:["Goodbye","Hello","Thank you","Sorry"],a:1,e:"안녕하세요 means hello."},
+{q:"감사합니다 (gamsahamnida) means:",o:["Hello","Sorry","Thank you","Please"],a:2,e:"감사합니다 means thank you."},
+{q:"Which Korean word means 'water'?",o:["물 (mul)","불 (bul)","밥 (bap)","차 (cha)"],a:0,e:"물 means water. 불 is fire and 밥 is rice."},
+{q:"오늘 (oneul) means:",o:["Yesterday","Tomorrow","Today","Now"],a:2,e:"오늘 means today."},
+{q:"크다 (keuda) means:",o:["Small","Big","Long","Short"],a:1,e:"크다 means big. 작다 means small."},
+{q:"저는 학생입니다. (Jeoneun haksaeng-imnida.) means:",o:["I am a teacher.","I am a student.","I am Korean.","I am busy."],a:1,e:"저 means I and 학생 means student."},
+{q:"Which number is 삼 (sam)?",o:["1","2","3","4"],a:2,e:"일 is 1, 이 is 2, and 삼 is 3."},
+{q:"안녕히 가세요 (annyeonghi gaseyo) means:",o:["Hello","Goodbye (to someone leaving)","Welcome","Good night"],a:1,e:"안녕히 가세요 means goodbye, said to someone who is leaving."},
+{q:"What is 김치 (kimchi)?",o:["A drink","A Korean food","A city","A person"],a:1,e:"김치 is kimchi, Korean food."},
+{q:"저는 한국 ___ 갑니다. (I go to Korea.) Which particle fits?",o:["에 (e)","을 (eul)","에서 (eseo)","는 (neun)"],a:0,e:"에 marks the destination: 한국에 갑니다."},
+{q:"좋은 아침 (joeun achim) means:",o:["Good evening","Good morning","Good night","Goodbye"],a:1,e:"좋은 아침 means good morning."},
+{q:"죄송합니다 (joesonghamnida) means:",o:["Thank you","Sorry","Please","Hello"],a:1,e:"죄송합니다 means sorry."},
+{q:"Which Korean word means 'mountain'?",o:["강 (gang)","산 (san)","바다 (bada)","하늘 (haneul)"],a:1,e:"산 means mountain. 강 is river and 바다 is sea."},
+{q:"고양이 (goyangi) is:",o:["A dog","A cat","A bird","A fish"],a:1,e:"고양이 means cat. 개 is dog."},
+{q:"내일 (naeil) means:",o:["Yesterday","Tomorrow","Today","Now"],a:1,e:"내일 means tomorrow. 어제 is yesterday."},
+{q:"작다 (jakda) means:",o:["Small","Big","Long","Short"],a:1,e:"작다 means small. 크다 means big."},
+{q:"이것은 책입니다. (Igeoseun chaeg-imnida.) means:",o:["This is a pen.","This is a book.","This is a bag.","This is a car."],a:1,e:"이것 means this and 책 means book."},
+{q:"Which number is 십 (ship)?",o:["5","8","10","100"],a:2,e:"십 is 10."},
+{q:"안녕히 주무세요 (annyeonghi jumuseyo) means:",o:["Good morning","Goodbye","Good night","Welcome"],a:2,e:"안녕히 주무세요 means good night."},
+{q:"저는 물을 ___. (I drink water.) Which verb fits?",o:["마십니다","먹습니다","읽습니다","씁니다"],a:0,e:"마십니다 means to drink. 먹습니다 is to eat."}]},
+goethe:{title:"Goethe A1: German Basics Deutsch Grundlagen",desc:"10 questions on words and grammar, drawn fresh from a pool of 20 each time. For beginners.",qs:[
+{q:"What does 'Guten Tag' mean?",o:["Goodbye","Hello / Good day","Thank you","Sorry"],a:1,e:"'Guten Tag' means hello, or good day."},
+{q:"What does 'Danke' mean?",o:["Hello","Sorry","Thank you","Please"],a:2,e:"'Danke' means thank you."},
+{q:"Which German word means 'water'?",o:["Wasser","Feuer","Brot","Tee"],a:0,e:"'Wasser' means water. 'Feuer' is fire and 'Brot' is bread."},
+{q:"What does 'Heute' mean?",o:["Yesterday","Tomorrow","Today","Now"],a:2,e:"'Heute' means today. 'Gestern' is yesterday and 'morgen' is tomorrow."},
+{q:"What does 'Groß' mean?",o:["Small","Big","Long","Short"],a:1,e:"'Groß' means big. 'Klein' means small."},
+{q:"What does 'Ich bin Student.' mean?",o:["I am a teacher.","I am a student.","I am German.","I am busy."],a:1,e:"'Ich' means I and 'Student' means student."},
+{q:"Which number is 'drei'?",o:["1","2","3","4"],a:2,e:"eins is 1, zwei is 2, and drei is 3."},
+{q:"What does 'Auf Wiedersehen' mean?",o:["Hello","Goodbye","Welcome","Good night"],a:1,e:"'Auf Wiedersehen' means goodbye."},
+{q:"Someone asks 'Wie heißt du?' How do you answer?",o:["Ich heiße Anna.","Guten Tag.","Danke.","Auf Wiedersehen."],a:0,e:"They're asking your name, so answer with 'Ich heiße…' which means 'my name is…'."},
+{q:"Ich fahre ___ Deutschland. (I travel to Germany.) Which word fits?",o:["nach","in","zu","an"],a:0,e:"It's 'nach' with a country name that has no article: 'nach Deutschland'."},
+{q:"What does 'Guten Morgen' mean?",o:["Good evening","Good morning","Good night","Goodbye"],a:1,e:"'Guten Morgen' means good morning."},
+{q:"What does 'Entschuldigung' mean?",o:["Thank you","Excuse me / Sorry","Please","Hello"],a:1,e:"'Entschuldigung' means excuse me or sorry."},
+{q:"Which German word means 'mountain'?",o:["Fluss","Berg","Meer","Himmel"],a:1,e:"'Berg' means mountain. 'Fluss' is river and 'Meer' is sea."},
+{q:"What is 'die Katze'?",o:["A dog","A cat","A bird","A fish"],a:1,e:"'Die Katze' means cat. 'Der Hund' is dog."},
+{q:"What does 'morgen' mean?",o:["Yesterday","Tomorrow","Today","Now"],a:1,e:"'Morgen' means tomorrow. 'Gestern' is yesterday."},
+{q:"What does 'klein' mean?",o:["Big","Small","Long","Short"],a:1,e:"'Klein' means small. 'Groß' means big."},
+{q:"What does 'Das ist ein Buch.' mean?",o:["This is a pen.","This is a book.","This is a bag.","This is a car."],a:1,e:"'Das' means this and 'Buch' means book."},
+{q:"Which number is 'zehn'?",o:["5","8","10","100"],a:2,e:"'Zehn' is 10."},
+{q:"What does 'Gute Nacht' mean?",o:["Good morning","Goodbye","Good night","Welcome"],a:2,e:"'Gute Nacht' means good night."},
+{q:"Ich ___ Wasser. (I drink water.) Which verb fits?",o:["trinke","esse","lese","schreibe"],a:0,e:"'Trinke' means to drink. 'Esse' is to eat."}]},
+turkish:{title:"Turkish Basics: Temel Türkçe",desc:"10 questions on words and grammar, drawn fresh from a pool of 20 each time. For beginners.",qs:[
+{q:"What does 'Merhaba' mean?",o:["Goodbye","Hello","Thank you","Sorry"],a:1,e:"'Merhaba' means hello."},
+{q:"What does 'Teşekkür ederim' mean?",o:["Hello","Sorry","Thank you","Please"],a:2,e:"'Teşekkür ederim' means thank you."},
+{q:"Which Turkish word means 'water'?",o:["Su","Ateş","Ekmek","Çay"],a:0,e:"'Su' means water. 'Ateş' is fire and 'ekmek' is bread."},
+{q:"What does 'Bugün' mean?",o:["Yesterday","Tomorrow","Today","Now"],a:2,e:"'Bugün' means today. 'Dün' is yesterday and 'yarın' is tomorrow."},
+{q:"What does 'Büyük' mean?",o:["Small","Big","Long","Short"],a:1,e:"'Büyük' means big. 'Küçük' means small."},
+{q:"What does 'Ben öğrenciyim.' mean?",o:["I am a teacher.","I am a student.","I am Turkish.","I am busy."],a:1,e:"'Ben' means I and 'öğrenci' means student."},
+{q:"Which number is 'üç'?",o:["1","2","3","4"],a:2,e:"bir is 1, iki is 2, and üç is 3."},
+{q:"What does 'Hoşça kal' mean?",o:["Hello","Goodbye","Welcome","Good night"],a:1,e:"'Hoşça kal' means goodbye."},
+{q:"Someone asks 'Adın ne?' How do you answer?",o:["Benim adım Ayşe.","Merhaba.","Teşekkür ederim.","Hoşça kal."],a:0,e:"They're asking your name, so answer with 'Benim adım…' which means 'my name is…'."},
+{q:"Ben Türkiye___ gidiyorum. (I am going to Turkey.) Which ending fits?",o:["'ye","'de","'den","'i"],a:0,e:"The ending is 'ye, for direction: 'Türkiye'ye gidiyorum'."},
+{q:"What does 'Günaydın' mean?",o:["Good evening","Good morning","Good night","Goodbye"],a:1,e:"'Günaydın' means good morning."},
+{q:"What does 'Özür dilerim' mean?",o:["Thank you","Sorry","Please","Hello"],a:1,e:"'Özür dilerim' means sorry."},
+{q:"Which Turkish word means 'mountain'?",o:["Nehir","Dağ","Deniz","Gökyüzü"],a:1,e:"'Dağ' means mountain. 'Nehir' is river and 'Deniz' is sea."},
+{q:"What is 'kedi'?",o:["A dog","A cat","A bird","A fish"],a:1,e:"'Kedi' means cat. 'Köpek' is dog."},
+{q:"What does 'yarın' mean?",o:["Yesterday","Tomorrow","Today","Now"],a:1,e:"'Yarın' means tomorrow. 'Dün' is yesterday."},
+{q:"What does 'küçük' mean?",o:["Big","Small","Long","Short"],a:1,e:"'Küçük' means small. 'Büyük' means big."},
+{q:"What does 'Bu bir kitap.' mean?",o:["This is a pen.","This is a book.","This is a bag.","This is a car."],a:1,e:"'Bu' means this and 'kitap' means book."},
+{q:"Which number is 'on'?",o:["5","8","10","100"],a:2,e:"'On' is 10."},
+{q:"What does 'İyi geceler' mean?",o:["Good morning","Goodbye","Good night","Welcome"],a:2,e:"'İyi geceler' means good night."},
+{q:"Ben su ___. (I drink water.) Which verb fits?",o:["içiyorum","yiyorum","okuyorum","yazıyorum"],a:0,e:"'İçiyorum' means I am drinking. 'Yiyorum' is I am eating."}]}
+};
+let currentTest=null, answers={}, drawn=[];
+function shuffle(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));const tmp=a[i];a[i]=a[j];a[j]=tmp;}return a;}
+function goHome(){document.getElementById('home').classList.remove('hidden');document.getElementById('quiz').classList.add('hidden');}
+function startTest(id){currentTest=id;answers={};const t=TESTS[id];drawn=shuffle([...t.qs]).slice(0,10).map(q=>{const order=shuffle([0,1,2,3]);return{q:q.q,o:order.map(j=>q.o[j]),a:order.indexOf(q.a),e:q.e};});document.getElementById('testTitle').textContent=t.title;document.getElementById('testDesc').textContent=t.desc;const box=document.getElementById('questions');box.innerHTML='';drawn.forEach((q,i)=>{const d=document.createElement('div');d.className='q';d.innerHTML='<b>'+(i+1)+'. '+q.q+'</b>';q.o.forEach((o,j)=>{const b=document.createElement('button');b.className='opt';b.textContent=String.fromCharCode(65+j)+'. '+o;b.onclick=()=>{answers[i]=j;[...d.querySelectorAll('.opt')].forEach(x=>x.classList.remove('sel'));b.classList.add('sel');};d.appendChild(b);});const e=document.createElement('div');e.className='exp';e.id='exp'+i;e.textContent='💡 '+q.e;d.appendChild(e);box.appendChild(d);});document.getElementById('scoreBox').classList.add('hidden');document.getElementById('home').classList.add('hidden');document.getElementById('quiz').classList.remove('hidden');window.scrollTo(0,0);}
+function submitQuiz(){let score=0;drawn.forEach((q,i)=>{const exp=document.getElementById('exp'+i);exp.style.display='block';const opts=document.querySelectorAll('#questions .q')[i].querySelectorAll('.opt');opts.forEach((o,j)=>{if(j===q.a)o.classList.add('correct');else if(answers[i]===j)o.classList.add('wrong');});if(answers[i]===q.a)score++;});document.getElementById('scoreText').textContent=score+' / '+drawn.length;document.getElementById('scoreNote').textContent=score>=8?UI[lang].ex:score>=6?UI[lang].gd:UI[lang].kp;document.getElementById('scoreBox').classList.remove('hidden');document.getElementById('scoreBox').scrollIntoView({behavior:'smooth'});}
+</script></body></html>
